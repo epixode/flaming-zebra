@@ -1,0 +1,42 @@
+{
+  "name": "flaming-zebra",
+  "version": "0.0.1",
+  "description": "An experimental React-like rendering library based on virtual-dom.",
+  "keywords": ["virtual", "dom", "vdom", "vtree", "diff", "patch", "browser", "react"],
+  "author": "Sébastien Carlier <s.carlier@epixode.fr>",
+  "bugs": {
+    "url": "https://github.com/epixode/flaming-zebra/issues",
+    "email": "fz@epixode.fr"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/epixode/flaming-zebra/raw/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epixode/flaming-zebra.git"
+  },
+  "main": "index",
+  "dependencies": {
+    "dom-delegator": "^13.1.0",
+    "lodash": "^3.6.0",
+    "raf": "^2.0.4",
+    "virtual-dom": "^2.0.1"
+  },
+  "devDependencies": {
+    "babelify": "^6.0.0",
+    "browserify": "latest",
+    "jshint": "^2.6.3",
+    "mocha": "^2.2.1",
+    "uglifyify": "latest",
+    "watchify": "latest"
+  },
+  "scripts": {
+    "build": "browserify test.js -t babelify -g uglifyify -o dist/test.js",
+    "watch": "watchify test.js -t babelify -o dist/test.js -v",
+    "lint": "jshint **.js",
+    "test": "mocha test/"
+  }
+}
