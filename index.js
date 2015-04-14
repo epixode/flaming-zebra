@@ -101,8 +101,12 @@ function createElement (tagName, properties) {
     }
   }
   // Call the component's render method to build the virtual DOM.
-  // return component.render(children);
-  return _wrapMethod(component, component.render)(children);
+  fz._contextStack.push(component);
+  try {
+    return component.render.apply(component, children);
+  } finally {
+    fz._contextStack.pop();
+  }
 }
 
 function patchState (patches) {
